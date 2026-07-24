@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You | A Magical Journey</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP for Professional Motion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+</head>
+<body>
+
+    <!-- Cinematic Background -->
+    <div class="bg-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="cursor-follower"></div>
+
+    <!-- Main Container -->
+    <main id="story-container">
+        
+        <!-- Scene 1: The Intro -->
+        <section class="scene active" id="scene-intro">
+            <div class="content">
+                <p id="intro-text" class="text-reveal"></p>
+                <button id="start-btn" class="magical-btn hidden">Click Anywhere To Begin</button>
+            </div>
+        </section>
+
+        <!-- Scene 2: Memories -->
+        <section class="scene" id="scene-memories">
+            <h2 class="scene-title">Timeless Moments</h2>
+            <div class="gallery">
+                <!-- Floating Photos -->
+                <div class="photo-card" style="--rotation: -5deg">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop" alt="Memory 1">
+                    <span>Our first adventure...</span>
+                </div>
+                <div class="photo-card" style="--rotation: 3deg">
+                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070&auto=format&fit=crop" alt="Memory 2">
+                    <span>That night under the stars.</span>
+                </div>
+                <div class="photo-card" style="--rotation: -2deg">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop" alt="Memory 3">
+                    <span>Laughter & Joy.</span>
+                </div>
+            </div>
+            <button class="next-btn">Continue →</button>
+        </section>
+
+        <!-- Scene 3: The Secret Chest -->
+        <section class="scene" id="scene-chest">
+            <div class="chest-container">
+                <p class="instruction">I wonder if you remember this...</p>
+                <div class="chest-wrapper">
+                    <div class="chest-lid"></div>
+                    <div class="chest-base">
+                        <div class="keyhole"></div>
+                    </div>
+                </div>
+                <div class="password-wrap">
+                    <input type="password" id="chest-pass" placeholder="Secret Year" maxlength="4">
+                    <p id="chest-error" class="error-msg"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 4: The Letter -->
+        <section class="scene" id="scene-letter">
+            <div class="paper">
+                <div class="letter-content">
+                    <p id="letter-text"></p>
+                </div>
+                <div class="wax-seal"></div>
+            </div>
+            <button class="next-btn gold-btn">Close Envelope</button>
+        </section>
+
+        <!-- Scene 5: Celebration -->
+        <section class="scene" id="scene-celebration">
+            <div class="celebration-content">
+                <h1 class="hb-text" id="hb-1">HAPPY</h1>
+                <h1 class="hb-text" id="hb-2">BIRTHDAY</h1>
+                <h1 class="hb-text name-reveal" id="hb-3">Alex ❤️</h1>
+                
+                <div class="wish-section hidden">
+                    <div class="cake">
+                        <div class="candle">
+                            <div class="flame"></div>
+                        </div>
+                    </div>
+                    <button id="wish-btn" class="magical-btn">Make A Wish ✨</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 6: Final Scene -->
+        <section class="scene" id="scene-final">
+            <div class="final-content">
+                <p class="final-msg">Thank You</p>
+                <p class="final-sub">For being an amazing person...</p>
+                <div class="glowing-heart">❤</div>
+                <div class="end-actions">
+                    <button onclick="location.reload()">Replay Story</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

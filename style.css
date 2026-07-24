@@ -1,0 +1,231 @@
+:root {
+    --black: #080808;
+    --white: #FFFFFF;
+    --ivory: #FAF8F5;
+    --gold: #E6C36A;
+    --pink: #FFD6E8;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Custom cursor */
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Background Effects */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(230, 195, 106, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Cursor Follower */
+.cursor-follower {
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold);
+}
+
+/* Scene Logic */
+.scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    padding: 20px;
+}
+
+.scene.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Typography Styles */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+.text-reveal {
+    font-size: 2.5rem;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.4;
+    letter-spacing: 2px;
+}
+
+/* Magical Button */
+.magical-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    margin-top: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.magical-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 30px rgba(230, 195, 106, 0.2);
+}
+
+/* Gallery Section */
+.gallery {
+    display: flex;
+    gap: 40px;
+    perspective: 1000px;
+}
+
+.photo-card {
+    width: 250px;
+    height: 350px;
+    background: var(--glass);
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: rotate(var(--rotation));
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.1) translateY(-20px);
+    z-index: 10;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
+    filter: sepia(0.3);
+}
+
+.photo-card span {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Playfair Display';
+    font-size: 0.9rem;
+    color: var(--ivory);
+}
+
+/* Chest Logic */
+.chest-wrapper {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.chest-base {
+    width: 100%;
+    height: 100%;
+    background: #2a1b0a;
+    border: 2px solid var(--gold);
+    border-radius: 5px;
+    position: relative;
+}
+
+.keyhole {
+    width: 20px;
+    height: 30px;
+    background: var(--gold);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    box-shadow: 0 0 15px var(--gold);
+}
+
+#chest-pass {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gold);
+    color: var(--gold);
+    text-align: center;
+    font-size: 2rem;
+    width: 150px;
+    outline: none;
+    letter-spacing: 10px;
+}
+
+/* Letter */
+.paper {
+    width: 90%;
+    max-width: 600px;
+    background: var(--ivory);
+    color: #333;
+    padding: 60px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: rotate(-1deg);
+    font-family: 'Playfair Display', serif;
+}
+
+/* Celebration */
+.hb-text {
+    font-size: 8vw;
+    opacity: 0;
+    position: absolute;
+}
+
+.cake {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    background: var(--ivory);
+    margin-bottom: 40px;
+}
+
+.flame {
+    width: 15px;
+    height: 25px;
+    background: orange;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
