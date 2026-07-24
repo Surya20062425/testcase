@@ -115,3 +115,18 @@ document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('clic
 // Init
 initParticles();
 animateParticles();
+//config
+const CONFIG = {
+    friendName: 'Friend',     // ← Your friend's name
+    password: '2006',         // ← Treasure box password
+    galleryImages: [          // ← Replace with your own photo URLs
+        'https://your-image-1.jpg',
+        'https://your-image-2.jpg',
+        // ...add more
+    ],
+    letterContent: `Dear {name},\n\nYour custom message here...`,  // ← {name} auto-replaces
+    birthdayWishes: [         // ← Customize birthday wishes
+        'May all your dreams come true.',
+        // ...add more
+    ],
+};
